@@ -11,5 +11,7 @@ import Foundation
 struct User {
     let userName: String
     let followers: String
+    let following: String
     let image: String
+    let bio: String
 }

@@ -16,7 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
-    
+    @IBOutlet weak var bioTextView: UITextView!
+
+    @IBOutlet weak var followingLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +42,16 @@ class ViewController: UIViewController {
                 self.imageView.image = pic
                 self.usernameLabel.text = "User: \(user.userName)"
                 self.followersLabel.text = "Followers: \(user.followers)"
+                self.followingLabel.text = "Following: \(user.following)"
+                var bio = user.bio
+                bio = bio.replacingOccurrences(of: "\\u2800" , with: "", options: NSString.CompareOptions.literal, range: nil)
+                bio = bio.replacingOccurrences(of: "\\u2063" , with: "", options: NSString.CompareOptions.literal, range: nil)
+                bio = bio.replacingOccurrences(of: "\\n" , with: " ", options: NSString.CompareOptions.literal, range: nil)
+                bio = bio.replacingOccurrences(of: "\\ud83d\\udcf8" , with: "🍔", options: NSString.CompareOptions.literal, range: nil)
+
+
+
+                self.bioTextView.text = bio
 
             }
         }

@@ -31,29 +31,51 @@ class APIController {
                     NSLog("Cannot cast data into string")
                     return
                 }
-                let leftSideOfTheFollow = """
+
+                let leftSideOfTheFollower = """
                 edge_followed_by":{"count":
                 """
-                let rightSideOfTheFollow = """
+                let rightSideOfTheFollower = """
                 },"followed_by_viewer
                 """
 
+                let leftSideOfTheFollowing = """
+                edge_follow":{"count":
+                """
+                let rightSideOfTheFollowing = """
+                },"follows_viewer
+                """
                 let leftSideOfThePic = """
                 profile_pic_url_hd":"
                 """
                 let rightSideOfThePic = """
                 ","requested_by_viewer
                 """
-
-                guard let leftRangeFollow = htmlString.range(of: leftSideOfTheFollow) else {
+                let leftSideOfTheBio = """
+                user":{"biography":"
+                """
+                let rightSideOfTheBio = """
+                ","blocked_by_viewer
+                """
+                print(htmlString)
+                guard let leftRangeFollower = htmlString.range(of: leftSideOfTheFollower) else {
                     NSLog("Cannot find left range")
                     return
                 }
 
-                guard let rightRangeFollow = htmlString.range(of: rightSideOfTheFollow) else {
+                guard let rightRangeFollower = htmlString.range(of: rightSideOfTheFollower) else {
                     NSLog("Cannot find right range")
                     return
                 }
+                guard let leftRangeFollowing = htmlString.range(of: leftSideOfTheFollowing) else {
+                   NSLog("Cannot find left range")
+                   return
+               }
+
+               guard let rightRangeFollowing = htmlString.range(of: rightSideOfTheFollowing) else {
+                   NSLog("Cannot find right range")
+                   return
+               }
 
                 guard let leftRangePic = htmlString.range(of: leftSideOfThePic) else {
                            NSLog("Cannot find left range")
@@ -64,16 +86,29 @@ class APIController {
                            NSLog("Cannot find right range")
                            return
                 }
+                guard let leftRangeBio = htmlString.range(of: leftSideOfTheBio) else {
+                                          NSLog("Cannot find left range")
+                                          return
+                               }
 
-                let rangeOfTheFollowers = leftRangeFollow.upperBound..<rightRangeFollow.lowerBound
+               guard let rightRangeBio = htmlString.range(of: rightSideOfTheBio) else {
+                          NSLog("Cannot find right range")
+                          return
+               }
+
+                let rangeOfTheFollowers = leftRangeFollower.upperBound..<rightRangeFollower.lowerBound
+                let rangeOfTheFollowing = leftRangeFollowing.upperBound..<rightRangeFollowing.lowerBound
                 let rangeOfThePic = leftRangePic.upperBound..<rightRangePic.lowerBound
+                let rangeOfTheBio = leftRangeBio.upperBound..<rightRangeBio.lowerBound
                 let followers = String(htmlString[rangeOfTheFollowers])
+                let following = String(htmlString[rangeOfTheFollowing])
                 let pic = String(htmlString[rangeOfThePic])
+                let bio = String(htmlString[rangeOfTheBio])
 
-                let userInfo = User(userName: user, followers: followers, image: pic)
+                let userInfo = User(userName: user, followers: followers, following: following, image: pic, bio: bio)
                 completion(userInfo)
 
-    //            print(htmlString)
+                print(htmlString)
             }.resume()
         }
 

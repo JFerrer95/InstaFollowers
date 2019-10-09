@@ -11,39 +11,52 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DoNothingClubApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstagramScraper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="scd-K4-zYn">
-                                <rect key="frame" x="0.0" y="44" width="414" height="548"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="715.5"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="User:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdV-PE-yZk">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8nG-tG-Naa">
+                                        <rect key="frame" x="0.0" y="28.5" width="414" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZBG-bT-GGp">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                        <rect key="frame" x="0.0" y="164.5" width="414" height="414"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ZBG-bT-GGp" secondAttribute="height" multiplier="1:1" id="sLW-yB-2We"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="User:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdV-PE-yZk">
-                                        <rect key="frame" x="0.0" y="422" width="414" height="17.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrZ-DR-Wk7">
+                                        <rect key="frame" x="0.0" y="586.5" width="414" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qT-DF-Hmn">
-                                        <rect key="frame" x="0.0" y="447.5" width="414" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="615" width="414" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K97-HD-Ykl">
-                                        <rect key="frame" x="0.0" y="476" width="414" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K97-HD-Ykl">
+                                        <rect key="frame" x="0.0" y="643.5" width="414" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRY-xI-LvW">
-                                        <rect key="frame" x="0.0" y="518" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="685.5" width="414" height="30"/>
                                         <state key="normal" title="Get Follow Count"/>
                                         <connections>
                                             <action selector="getFollowersPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gj7-CU-1mb"/>
@@ -54,15 +67,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="scd-K4-zYn" secondAttribute="bottom" constant="270" id="7J8-9S-Z7P"/>
-                            <constraint firstItem="scd-K4-zYn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9LD-Yh-4dD"/>
-                            <constraint firstItem="scd-K4-zYn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oZ0-zA-beb"/>
-                            <constraint firstItem="scd-K4-zYn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rWY-yo-El6"/>
+                            <constraint firstItem="scd-K4-zYn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EXP-oe-Cin"/>
+                            <constraint firstItem="scd-K4-zYn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KrP-po-gSU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="scd-K4-zYn" secondAttribute="bottom" constant="102.5" id="XwE-8o-oIO"/>
+                            <constraint firstItem="scd-K4-zYn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hxg-4a-tBz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bioTextView" destination="8nG-tG-Naa" id="ers-RO-hm7"/>
                         <outlet property="followersLabel" destination="0qT-DF-Hmn" id="N24-Eu-qlr"/>
+                        <outlet property="followingLabel" destination="UrZ-DR-Wk7" id="ZNW-AU-cuu"/>
                         <outlet property="imageView" destination="ZBG-bT-GGp" id="M4Q-v3-cZp"/>
                         <outlet property="userTextField" destination="K97-HD-Ykl" id="WN3-CM-kZG"/>
                         <outlet property="usernameLabel" destination="mdV-PE-yZk" id="bJm-OP-1wZ"/>
